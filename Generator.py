@@ -16,11 +16,9 @@ try:
             attachment1, attachment2, attachment3, attachment4 = random.choice(attachment[0]), random.choice(attachment[1]), random.choice(attachment[2]), random.choice(attachment[3])
         else: attachment1=attachment2=attachment3=attachment4=None
         return item, rarity, attachment1, attachment2, attachment3, attachment4
-    slotone_weapon, slotone_rarity, slotone_attachment1, slotone_attachment2, slotone_attachment3, slotone_attachment4 = item_generator()
-    slottwo_weapon, slottwo_rarity, slottwo_attachment1, slottwo_attachment2, slottwo_attachment3, slottwo_attachment4 = item_generator()
-    slotthree_weapon, slotthree_rarity, slotthree_attachment1, slotthree_attachment2, slotthree_attachment3, slotthree_attachment4 = item_generator()
-    slotfour_weapon, slotfour_rarity, slotfour_attachment1, slotfour_attachment2, slotfour_attachment3, slotfour_attachment4 = item_generator()
-    slotfive_weapon, slotfive_rarity, slotfive_attachment1, slotfive_attachment2, slotfive_attachment3, slotfive_attachment4 = item_generator()
-
-    print(Fore.CYAN + Style.BRIGHT + 'Loadout generated!\n' + Fore.WHITE + Style.RESET_ALL + f'Slot 1:\nItem: {slotone_weapon}\nRarity: {slotone_rarity}\nAttachments: {slotone_attachment1}, {slotone_attachment2}, {slotone_attachment3}, {slotone_attachment4}\n\nSlot 2:\nItem: {slottwo_weapon}\nRarity: {slottwo_rarity}\nAttachments: {slottwo_attachment1}, {slottwo_attachment2}, {slottwo_attachment3}, {slottwo_attachment4}\n\nSlot 3:\nItem: {slotthree_weapon}\nRarity: {slotthree_rarity}\nAttachments: {slotthree_attachment1}, {slotthree_attachment2}, {slotthree_attachment3}, {slotthree_attachment4}\n\nSlot 4:\nItem: {slotfour_weapon}\nRarity: {slotfour_rarity}\nAttachments: {slotfour_attachment1}, {slotfour_attachment2}, {slotfour_attachment3}, {slotfour_attachment4}\n\nSlot 5:\nItem: {slotfive_weapon}\nRarity: {slotfive_rarity}\nAttachments: {slotfive_attachment1}, {slotfive_attachment2}, {slotfive_attachment3}, {slotfive_attachment4}\n')
-except exit('Please make sure you\'ve (pip) installed colorama, and make sure random is installed\n\npip install colorama\n')
+    
+    for slot_num in range(1, 6):
+        weapon, rarity, *attachments = item_generator()
+        attachments_str = ', '.join(attachments)
+        print(Fore.CYAN + Style.BRIGHT + f'Slot {slot_num}:\n' + Fore.WHITE + Style.RESET_ALL + f'Item: {weapon}\nRarity: {rarity}\nAttachments: {attachments_str}\n')
+except ModuleNotFoundError: exit('Please make sure you\'ve (pip) installed colorama\n\npip install colorama\n')
