@@ -21,4 +21,8 @@ try:
         weapon, rarity, *attachments = item_generator()
         attachments_str = ', '.join(attachments)
         print(Fore.CYAN + Style.BRIGHT + f'Slot {slot_num}:\n' + Fore.WHITE + Style.RESET_ALL + f'Item: {weapon}\nRarity: {rarity}\nAttachments: {attachments_str}\n')
-except ModuleNotFoundError: exit('Please make sure you\'ve (pip) installed colorama\n\npip install colorama\n')
+except ModuleNotFoundError as e:
+	ModuleMissing = str(e)
+	ModuleMissing = ModuleMissing.split("'")
+	ModuleMissing = ModuleMissing[1]
+	exit(f'Module not found: {e}\nPlease (pip) install {ModuleMissing}')
