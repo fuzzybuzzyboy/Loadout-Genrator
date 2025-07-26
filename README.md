@@ -10,3 +10,7 @@ This is a simple version of my original loadout generator using streamlit
 - 1 Install the files.
 - 2 Run the 'Generator.py' file.
 - 3 Get your loadout.
+
+
+## update
+uh last updated last year, never will get updated, still works but very inacurate to current events.
